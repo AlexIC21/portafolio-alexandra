@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Portafolio Alexandra</title>
+
+  <style>
+    *{
+      box-sizing:border-box;
+      margin:0;
+      padding:0;
+      font-family: Arial, sans-serif;
+    }
+
+    body{
+      background:#f7f2fb;
+      color:#4b3b5a;
+      padding-bottom:90px;
+    }
+
+    header{
+      background:#cdb4db;
+      color:#4b2e5e;
+      text-align:center;
+      padding:30px 20px;
+      box-shadow:0 3px 8px rgba(0,0,0,0.08);
+    }
+
+    header h1{
+      font-size:30px;
+      margin-bottom:8px;
+    }
+
+    header p{
+      font-size:16px;
+    }
+
+    #contenido{
+      max-width:950px;
+      margin:30px auto;
+      background:#ffffff;
+      border-radius:20px;
+      padding:30px;
+      box-shadow:0 6px 18px rgba(137,102,163,0.15);
+      min-height:430px;
+    }
+
+    h2{
+      color:#8e6bbf;
+      margin-bottom:15px;
+    }
+
+    h3{
+      color:#7d5ba6;
+      margin-top:20px;
+      margin-bottom:10px;
+    }
+
+    p, li{
+      line-height:1.7;
+      margin-bottom:10px;
+      font-size:16px;
+      text-align:justify;
+    }
+
+    ul{
+      margin-left:20px;
+      margin-top:10px;
+      margin-bottom:12px;
+    }
+
+    .barra{
+      position:fixed;
+      bottom:0;
+      left:0;
+      width:100%;
+      background:#b8a1d9;
+      display:flex;
+      flex-wrap:wrap;
+      box-shadow:0 -2px 10px rgba(0,0,0,0.08);
+      z-index:1000;
+    }
+
+    .barra button{
+      flex:1 1 16%;
+      min-width:120px;
+      border:none;
+      background:#b8a1d9;
+      color:white;
+      padding:16px 10px;
+      cursor:pointer;
+      font-size:15px;
+      transition:0.3s;
+    }
+
+    .barra button:hover{
+      background:#a389cb;
+    }
+.barra button.activo{
+  background:#8e6bbf;
+  color:white;
+  font-weight:bold;
+}
+
+    .imagen-seccion{
+      display:block;
+      max-width:100%;
+      width:700px;
+      margin:25px auto;
+      border-radius:18px;
+      box-shadow:0 6px 18px rgba(0,0,0,0.12);
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+  <img src="./logo.png"
+       alt="Logo Alexandra"
+       style="width:140px; display:block; margin:0 auto 10px auto;">
+
+  <h1>Portafolio Personal</h1>
+  <p style="margin-top:6px; font-weight:bold;">Alexandra</p>
+  <p>Ingeniería Empresarial</p>
+</header>
+
+<div id="contenido">
+  <h2>Bienvenido a mi portafolio personal :3</h2>
+  <p>Este portafolio presenta mi perfil personal, académico y emprendedor.</p>
+  <p>Presiona uno de los botones de abajo para ver cada sección.</p>
+</div>
+
+<div class="barra">
+  <button onclick="inicio()">Inicio</button>
+  <button onclick="mostrar('preguntas')">1. Preguntas</button>
+  <button onclick="mostrar('foda')">2. FODA</button>
+  <button onclick="mostrar('ventana')">3. Ventana</button>
+  <button onclick="mostrar('hbdi')">4. HBDI</button>
+  <button onclick="mostrar('personalidades')">5. Personalidades</button>
+  <button onclick="mostrar('modelo')">6. Modelo</button>
+</div>
+<script>
+function inicio(){
+  document.getElementById("contenido").innerHTML = `
+    <h2>Bienvenido a mi portafolio personal :3</h2>
+
+    <div style="
+      display:flex;
+      justify-content:center;
+      gap:30px;
+      margin:25px 0;
+      flex-wrap:wrap;
+    ">
+
+      <img src="./foto1.png" alt="Foto 1"
+           style="
+             width:260px;
+             border-radius:18px;
+             box-shadow:0 6px 18px rgba(0,0,0,0.15);
+           ">
+
+      <img src="./foto2.png" alt="Foto 2"
+           style="
+             width:260px;
+             border-radius:18px;
+             box-shadow:0 6px 18px rgba(0,0,0,0.15);
+           ">
+
+    </div>
+
+    <p>Este portafolio presenta mi perfil personal, académico y emprendedor.</p>
+
+    <p style="font-weight:bold; margin-top:15px;">
+      Perfil de LinkedIn:
+      <a href="https://www.linkedin.com/in/alexandra-iporre-1b7772325"
+         target="_blank"
+         style="color:#8e6bbf; text-decoration:none;">
+         https://www.linkedin.com/in/alexandra-iporre-1b7772325
+      </a>
+    </p>
+
+    <p><strong>
+    Este portafolio refleja mi proceso de crecimiento personal, académico y emprendedor.
+    </strong></p>
+  `;
+
+  activarBoton("inicio");
+}
+function mostrar(seccion){
+  let contenido = "";
+
+  if(seccion === "preguntas"){
+    contenido = `
+      <h2>1. Respuesta a las preguntas</h2>
+
+      <p><strong>Nombre:</strong> Alexandra</p>
+      <p><strong>Carrera:</strong> Ingeniería Empresarial</p>
+      <p><strong>Universidad:</strong> Universidad Católica</p>
+      <p><strong>Semestre:</strong> Séptimo semestre</p>
+      <p><strong>Edad:</strong> 20 años (próximamente 21)</p>
+
+      <h3>¿Quién soy?</h3>
+
+      <p>
+      Soy Alexandra, estudiante de séptimo semestre de Ingeniería Empresarial en la Universidad Católica y actualmente presidenta del centro de estudiantes. Me caracterizo por ser una persona proactiva, extrovertida y con capacidad de liderazgo. Me gusta asumir responsabilidades y organizar equipos para alcanzar objetivos comunes.
+      </p>
+
+      <p>
+      Disfruto participar en actividades deportivas como el básquet, el tenis de mesa y el entrenamiento en gimnasio, ya que considero que el deporte fortalece la disciplina y el trabajo en equipo. Además, tengo interés por la tecnología y el desarrollo web, especialmente en la creación de soluciones digitales que ayuden a las empresas a mejorar su análisis de datos y procesos.
+      </p>
+
+      <h3>¿Cuáles son mis objetivos?</h3>
+
+      <p><strong>Corto plazo</strong></p>
+      <p>Desarrollar la aplicación que propuse para este semestre como proyecto académico.</p>
+
+      <p><strong>Mediano plazo</strong></p>
+      <p>Terminar la carrera en aproximadamente un año y medio, con el objetivo de graduarme por excelencia académica.</p>
+
+      <p><strong>Largo plazo</strong></p>
+      <p>Desarrollarme profesionalmente como emprendedora independiente, creando soluciones tecnológicas y plataformas web para pequeñas y medianas empresas.</p>
+
+      <h3>¿Cuál es mi pasión?</h3>
+
+      <p>
+      Me apasiona el deporte y la tecnología. El deporte forma parte importante de mi vida, especialmente el básquet y el tenis de mesa, porque me permiten mantener disciplina, constancia y trabajo en equipo.
+      </p>
+
+      <p>
+      También me apasiona el desarrollo tecnológico, especialmente la programación y el desarrollo web orientado a mejorar el análisis de datos y optimizar procesos empresariales.
+      </p>
+
+      <h3>¿Qué me hace única?</h3>
+
+      <p>
+      Mi capacidad para reaccionar rápidamente ante los cambios y adaptarme a diferentes situaciones. Además, tengo facilidad para comunicarme con las personas y generar un ambiente de confianza dentro de los equipos.
+      </p>
+
+      <p>
+      Otra característica que me distingue es mi iniciativa para asumir liderazgo y organizar proyectos o actividades, combinando mis habilidades sociales con mis conocimientos tecnológicos.
+      </p>
+    `;
+  }
+
+  if(seccion === "foda"){
+    contenido = `
+      <h2>2. FODA personal</h2>
+      <img src="./foda.png" alt="FODA personal" class="imagen-seccion">
+    `;
+  }
+
+  if(seccion === "ventana"){
+    contenido = `
+      <h2>3. Ventana de Johari</h2>
+
+      <p>
+      La Ventana de Johari es una herramienta de autoconocimiento que permite analizar la relación entre la percepción personal y la percepción de los demás sobre la propia personalidad. A partir de la evaluación realizada, se identifican las siguientes áreas:
+      </p>
+
+      <p><strong style="font-size:18px;">🟢 Área Pública (Abierta)</strong></p>
+      <p>
+      Corresponde a los aspectos de mi personalidad que tanto yo como las demás personas reconocemos con claridad. En esta área se concentran rasgos positivos como responsabilidad, perseverancia, organización, creatividad, liderazgo, proactividad, sociabilidad, extroversión y capacidad comunicativa. La amplitud de esta zona indica coherencia entre mi autopercepción y la imagen que proyecto, así como transparencia en mis interacciones. También refleja confianza interpersonal y facilidad para integrarme en equipos de trabajo.
+      </p>
+
+      <p><strong style="font-size:18px;">🔵 Área Ciega</strong></p>
+      <p>
+      Incluye características que los demás perciben en mí con mayor intensidad de la que yo misma reconozco. Entre ellas destacan la empatía, la seguridad personal, el perfeccionismo y la independencia. Esto sugiere que poseo habilidades socioemocionales y de liderazgo que pueden pasar desapercibidas en mi autoconcepto. Reconocer esta área representa una oportunidad de crecimiento, ya que permite valorar fortalezas que influyen positivamente en la forma en que los demás confían y se relacionan conmigo.
+      </p>
+
+      <p><strong style="font-size:18px;">🟠 Área Oculta</strong></p>
+      <p>
+      Comprende aspectos que yo conozco de mí misma pero que no siempre son visibles para los demás. Se relaciona principalmente con emociones internas como ansiedad, impulsividad, impaciencia o niveles elevados de estrés derivados de la autoexigencia y el deseo de obtener buenos resultados. Aunque estas características forman parte de mi experiencia personal, externamente suelo proyectar control y eficiencia. Esta área refleja la existencia de procesos internos que influyen en mi comportamiento pero que no siempre comparto abiertamente.
+      </p>
+
+      <p><strong style="font-size:18px;">🟣 Área Desconocida</strong></p>
+      <p>
+      Representa capacidades, talentos y rasgos que aún no han sido plenamente identificados ni por mí ni por las personas que me rodean. Incluye potencialidades que pueden manifestarse ante nuevos desafíos, experiencias o contextos profesionales. En mi caso, esta área se relaciona con el desarrollo futuro de habilidades estratégicas, liderazgo a mayor escala y crecimiento emprendedor. Constituye un espacio de posibilidades que se irá ampliando conforme avance mi formación personal y profesional.
+      </p>
+
+      <p>
+      En conjunto, el análisis evidencia una personalidad orientada al liderazgo, la acción y el logro, con buena adaptación social y alto potencial de desarrollo. La predominancia del área pública refleja autenticidad y claridad en la comunicación, mientras que las demás áreas señalan oportunidades para fortalecer el autoconocimiento y la inteligencia emocional.
+      </p>
+
+      <img src="./johari.png" alt="Ventana de Johari" class="imagen-seccion">
+    `;
+  }
+
+  if(seccion === "hbdi"){
+    contenido = `
+      <h2>4. Análisis de Dominancia Cerebral (HBDI)</h2>
+      <p>
+      El resultado del análisis de Dominancia Cerebral (HBDI) se encuentra pendiente y será incorporado posteriormente una vez proporcionado por el docente.
+      </p>
+    `;
+  }
+
+  if(seccion === "personalidades"){
+    contenido = `
+      <h2>5. Análisis de Personalidades Espontáneas</h2>
+      <p> El análisis del cuestionario de personalidad primaria indica que, de forma innata, predominan en mí los perfiles <strong>Administrador</strong> y <strong>Competidor</strong>, mientras que a lo largo de mi desarrollo personal se han fortalecido los perfiles <strong>Innovador</strong> y <strong>Estratega</strong>. </p>
+      <p> El perfil <strong>Administrador</strong> refleja mi tendencia a organizar, planificar, controlar y buscar seguridad en los procesos. Se relaciona con mi responsabilidad, necesidad de orden y capacidad para gestionar actividades y equipos de manera eficiente. </p>
+      <p> El perfil <strong>Competidor</strong> muestra mi iniciativa, determinación y orientación al logro. Este rasgo se manifiesta en mi impulso por superar retos, asumir liderazgo y buscar siempre mejores resultados tanto en el ámbito académico como personal. </p>
+      <p> Por otra parte, el perfil <strong>Innovador</strong> se ha desarrollado a partir de mi interés por la tecnología, la programación y la creación de soluciones nuevas. Esto se relaciona con mi capacidad de analizar, reflexionar y proponer ideas con una visión más amplia. </p>
+      <p> Finalmente, el perfil <strong>Estratega</strong> evidencia mi capacidad para dirigir, proyectar metas y detectar oportunidades de crecimiento. Esta personalidad complementa mi liderazgo, ya que me permite planificar a futuro y orientar mis esfuerzos hacia objetivos concretos. </p>
+      <p> En conjunto, estas personalidades muestran una combinación muy favorable para el emprendimiento: organización, iniciativa, creatividad y visión estratégica. </p>
+      <img src="./personalidades.png" alt="Personalidades espontáneas" class="imagen-seccion">
+    `;
+  }
+
+  if(seccion === "modelo"){
+    contenido = `
+      <h2>6. Modelo de Negocio Personal</h2>
+      <img src="./modelo.png" alt="Modelo de negocio personal" class="imagen-seccion">
+    `;
+  }
+
+  document.getElementById("contenido").innerHTML = contenido;
+}
+</script>
+
+</body>
+</html>
