@@ -13,19 +13,19 @@
       font-family: Arial, sans-serif;
     }
 
-   body{
-  background:#121018;
-  color:#e6def5;
-  padding-bottom:90px;
-}
+    body{
+      background:#121018;
+      color:#e6def5;
+      padding-bottom:90px;
+    }
 
     header{
-  background:#2a2238;
-  color:#f0eaff;
-  text-align:center;
-  padding:30px 20px;
-  box-shadow:0 3px 8px rgba(0,0,0,0.4);
-}
+      background:#2a2238;
+      color:#f0eaff;
+      text-align:center;
+      padding:30px 20px;
+      box-shadow:0 3px 8px rgba(0,0,0,0.4);
+    }
 
     header h1{
       font-size:30px;
@@ -37,22 +37,22 @@
     }
 
     #contenido{
-  max-width:950px;
-  margin:30px auto;
-  background:#1c1826;
-  border-radius:20px;
-  padding:30px;
-  box-shadow:0 6px 18px rgba(0,0,0,0.5);
-  min-height:430px;
-}
+      max-width:950px;
+      margin:30px auto;
+      background:#1c1826;
+      border-radius:20px;
+      padding:30px;
+      box-shadow:0 6px 18px rgba(0,0,0,0.5);
+      min-height:430px;
+    }
 
     h2{
-       color:#c5a6ff;
+      color:#c5a6ff;
       margin-bottom:15px;
     }
 
     h3{
-      color:#7d5ba6;
+      color:#a98ce6;
       margin-top:20px;
       margin-bottom:10px;
     }
@@ -70,38 +70,43 @@
       margin-bottom:12px;
     }
 
+    a{
+      color:#c5a6ff;
+    }
+
     .barra{
-  position:fixed;
-  bottom:0;
-  left:0;
-  width:100%;
-  background:#2a2238;
-  display:flex;
-  flex-wrap:wrap;
-  box-shadow:0 -2px 10px rgba(0,0,0,0.5);
-  z-index:1000;
-}
+      position:fixed;
+      bottom:0;
+      left:0;
+      width:100%;
+      background:#2a2238;
+      display:flex;
+      flex-wrap:wrap;
+      box-shadow:0 -2px 10px rgba(0,0,0,0.5);
+      z-index:1000;
+    }
 
-.barra button{
-  flex:1 1 16%;
-  min-width:120px;
-  border:none;
-  background:#2a2238;
-  color:#e6def5;
-  padding:16px 10px;
-  cursor:pointer;
-  font-size:15px;
-  transition:0.3s;
-}
+    .barra button{
+      flex:1 1 16%;
+      min-width:120px;
+      border:none;
+      background:#2a2238;
+      color:#e6def5;
+      padding:16px 10px;
+      cursor:pointer;
+      font-size:15px;
+      transition:0.3s;
+    }
 
- .barra button:hover{
-  background:#3b2f52;
-}
-.barra button.activo{
-  background:#a37bff;
-  color:#ffffff;
-  font-weight:bold;
-}
+    .barra button:hover{
+      background:#3b2f52;
+    }
+
+    .barra button.activo{
+      background:#a37bff;
+      color:#ffffff;
+      font-weight:bold;
+    }
 
     .imagen-seccion{
       display:block;
@@ -109,7 +114,21 @@
       width:700px;
       margin:25px auto;
       border-radius:18px;
-      box-shadow:0 6px 18px rgba(0,0,0,0.12);
+      box-shadow:0 6px 18px rgba(0,0,0,0.25);
+    }
+
+    .dos-fotos{
+      display:flex;
+      justify-content:center;
+      gap:30px;
+      margin:25px 0;
+      flex-wrap:wrap;
+    }
+
+    .dos-fotos img{
+      width:260px;
+      border-radius:18px;
+      box-shadow:0 6px 18px rgba(0,0,0,0.25);
     }
   </style>
 </head>
@@ -122,13 +141,30 @@
        style="width:140px; display:block; margin:0 auto 10px auto;">
 
   <h1>Portafolio Personal</h1>
-  
+  <p style="margin-top:6px; font-weight:bold;">Alexandra</p>
+  <p>Ingeniería Empresarial</p>
 </header>
 
 <div id="contenido">
   <h2>Bienvenido a mi portafolio personal :3</h2>
+
+  <div class="dos-fotos">
+    <img src="./foto1.png" alt="Foto 1">
+    <img src="./foto2.png" alt="Foto 2">
+  </div>
+
   <p>Este portafolio presenta mi perfil personal, académico y emprendedor.</p>
-  <p>Presiona uno de los botones de abajo para ver cada sección.</p>
+
+  <p style="font-weight:bold; margin-top:15px;">
+    Perfil de LinkedIn:
+    <a href="https://www.linkedin.com/in/alexandra-iporre-1b7772325"
+       target="_blank"
+       style="text-decoration:none;">
+      https://www.linkedin.com/in/alexandra-iporre-1b7772325
+    </a>
+  </p>
+
+  <p><strong>Este portafolio refleja mi proceso de crecimiento personal, académico y emprendedor.</strong></p>
 </div>
 
 <div class="barra">
@@ -140,33 +176,28 @@
   <button onclick="mostrar('personalidades')">5. Personalidades</button>
   <button onclick="mostrar('modelo')">6. Modelo</button>
 </div>
+
 <script>
+function activarBoton(nombreSeccion){
+  const botones = document.querySelectorAll(".barra button");
+  botones.forEach(boton => boton.classList.remove("activo"));
+
+  if(nombreSeccion === "inicio") botones[0].classList.add("activo");
+  if(nombreSeccion === "preguntas") botones[1].classList.add("activo");
+  if(nombreSeccion === "foda") botones[2].classList.add("activo");
+  if(nombreSeccion === "ventana") botones[3].classList.add("activo");
+  if(nombreSeccion === "hbdi") botones[4].classList.add("activo");
+  if(nombreSeccion === "personalidades") botones[5].classList.add("activo");
+  if(nombreSeccion === "modelo") botones[6].classList.add("activo");
+}
+
 function inicio(){
   document.getElementById("contenido").innerHTML = `
     <h2>Bienvenido a mi portafolio personal :3</h2>
 
-    <div style="
-      display:flex;
-      justify-content:center;
-      gap:30px;
-      margin:25px 0;
-      flex-wrap:wrap;
-    ">
-
-      <img src="./foto1.png" alt="Foto 1"
-           style="
-             width:260px;
-             border-radius:18px;
-             box-shadow:0 6px 18px rgba(0,0,0,0.15);
-           ">
-
-      <img src="./foto2.png" alt="Foto 2"
-           style="
-             width:260px;
-             border-radius:18px;
-             box-shadow:0 6px 18px rgba(0,0,0,0.15);
-           ">
-
+    <div class="dos-fotos">
+      <img src="./foto1.png" alt="Foto 1">
+      <img src="./foto2.png" alt="Foto 2">
     </div>
 
     <p>Este portafolio presenta mi perfil personal, académico y emprendedor.</p>
@@ -175,7 +206,7 @@ function inicio(){
       Perfil de LinkedIn:
       <a href="https://www.linkedin.com/in/alexandra-iporre-1b7772325"
          target="_blank"
-         style="color:#8e6bbf; text-decoration:none;">
+         style="text-decoration:none;">
          https://www.linkedin.com/in/alexandra-iporre-1b7772325
       </a>
     </p>
@@ -187,6 +218,7 @@ function inicio(){
 
   activarBoton("inicio");
 }
+
 function mostrar(seccion){
   let contenido = "";
 
@@ -201,7 +233,6 @@ function mostrar(seccion){
       <p><strong>Edad:</strong> 20 años (próximamente 21)</p>
 
       <h3>¿Quién soy?</h3>
-
       <p>
       Soy Alexandra, estudiante de séptimo semestre de Ingeniería Empresarial en la Universidad Católica y actualmente presidenta del centro de estudiantes. Me caracterizo por ser una persona proactiva, extrovertida y con capacidad de liderazgo. Me gusta asumir responsabilidades y organizar equipos para alcanzar objetivos comunes.
       </p>
@@ -211,7 +242,6 @@ function mostrar(seccion){
       </p>
 
       <h3>¿Cuáles son mis objetivos?</h3>
-
       <p><strong>Corto plazo</strong></p>
       <p>Desarrollar la aplicación que propuse para este semestre como proyecto académico.</p>
 
@@ -222,7 +252,6 @@ function mostrar(seccion){
       <p>Desarrollarme profesionalmente como emprendedora independiente, creando soluciones tecnológicas y plataformas web para pequeñas y medianas empresas.</p>
 
       <h3>¿Cuál es mi pasión?</h3>
-
       <p>
       Me apasiona el deporte y la tecnología. El deporte forma parte importante de mi vida, especialmente el básquet y el tenis de mesa, porque me permiten mantener disciplina, constancia y trabajo en equipo.
       </p>
@@ -232,7 +261,6 @@ function mostrar(seccion){
       </p>
 
       <h3>¿Qué me hace única?</h3>
-
       <p>
       Mi capacidad para reaccionar rápidamente ante los cambios y adaptarme a diferentes situaciones. Además, tengo facilidad para comunicarme con las personas y generar un ambiente de confianza dentro de los equipos.
       </p>
@@ -289,21 +317,44 @@ function mostrar(seccion){
   if(seccion === "hbdi"){
     contenido = `
       <h2>4. Análisis de Dominancia Cerebral (HBDI)</h2>
+
       <p>
-      El resultado del análisis de Dominancia Cerebral (HBDI) se encuentra pendiente y será incorporado posteriormente una vez proporcionado por el docente.
+      El Test de Dominancia Cerebral muestra un perfil con predominio en los cuadrantes <strong>Cortical Izquierdo (CI)</strong> y <strong>Límbico Izquierdo (LI)</strong>, lo que indica una personalidad orientada al análisis, la organización y la planificación estructurada.
       </p>
+
+      <p>
+      El cuadrante <strong>CI</strong> refleja pensamiento lógico, capacidad analítica y orientación a la resolución de problemas. Este resultado evidencia habilidades para el razonamiento, el análisis de datos y la toma de decisiones fundamentadas.
+      </p>
+
+      <p>
+      El alto puntaje en <strong>LI</strong> indica una fuerte tendencia hacia el orden, la responsabilidad, la disciplina y la gestión eficiente de tareas. Este cuadrante se asocia con la planificación, el cumplimiento de objetivos y la confiabilidad en el trabajo.
+      </p>
+
+      <p>
+      El cuadrante <strong>Cortical Derecho (CD)</strong> presenta un nivel medio, lo que sugiere creatividad, visión global y capacidad para generar ideas innovadoras, aunque con predominio del enfoque práctico sobre el intuitivo.
+      </p>
+
+      <p>
+      Por otro lado, el cuadrante <strong>Límbico Derecho (LD)</strong> muestra un nivel bajo, lo que indica que las decisiones suelen basarse más en la lógica y la estructura que en la expresión emocional o la espontaneidad.
+      </p>
+
+      <p>
+      En conjunto, el perfil corresponde a una persona organizada, analítica, orientada a resultados y con capacidad de liderazgo estructurado, características altamente compatibles con la formación en Ingeniería Empresarial y el desarrollo de proyectos emprendedores.
+      </p>
+
+      <img src="./dominancia.png" alt="Test de Dominancia Cerebral" class="imagen-seccion">
     `;
   }
 
   if(seccion === "personalidades"){
     contenido = `
       <h2>5. Análisis de Personalidades Espontáneas</h2>
-      <p> El análisis del cuestionario de personalidad primaria indica que, de forma innata, predominan en mí los perfiles <strong>Administrador</strong> y <strong>Competidor</strong>, mientras que a lo largo de mi desarrollo personal se han fortalecido los perfiles <strong>Innovador</strong> y <strong>Estratega</strong>. </p>
-      <p> El perfil <strong>Administrador</strong> refleja mi tendencia a organizar, planificar, controlar y buscar seguridad en los procesos. Se relaciona con mi responsabilidad, necesidad de orden y capacidad para gestionar actividades y equipos de manera eficiente. </p>
-      <p> El perfil <strong>Competidor</strong> muestra mi iniciativa, determinación y orientación al logro. Este rasgo se manifiesta en mi impulso por superar retos, asumir liderazgo y buscar siempre mejores resultados tanto en el ámbito académico como personal. </p>
-      <p> Por otra parte, el perfil <strong>Innovador</strong> se ha desarrollado a partir de mi interés por la tecnología, la programación y la creación de soluciones nuevas. Esto se relaciona con mi capacidad de analizar, reflexionar y proponer ideas con una visión más amplia. </p>
-      <p> Finalmente, el perfil <strong>Estratega</strong> evidencia mi capacidad para dirigir, proyectar metas y detectar oportunidades de crecimiento. Esta personalidad complementa mi liderazgo, ya que me permite planificar a futuro y orientar mis esfuerzos hacia objetivos concretos. </p>
-      <p> En conjunto, estas personalidades muestran una combinación muy favorable para el emprendimiento: organización, iniciativa, creatividad y visión estratégica. </p>
+      <p>El análisis del cuestionario de personalidad primaria indica que, de forma innata, predominan en mí los perfiles <strong>Administrador</strong> y <strong>Competidor</strong>, mientras que a lo largo de mi desarrollo personal se han fortalecido los perfiles <strong>Innovador</strong> y <strong>Estratega</strong>.</p>
+      <p>El perfil <strong>Administrador</strong> refleja mi tendencia a organizar, planificar, controlar y buscar seguridad en los procesos. Se relaciona con mi responsabilidad, necesidad de orden y capacidad para gestionar actividades y equipos de manera eficiente.</p>
+      <p>El perfil <strong>Competidor</strong> muestra mi iniciativa, determinación y orientación al logro. Este rasgo se manifiesta en mi impulso por superar retos, asumir liderazgo y buscar siempre mejores resultados tanto en el ámbito académico como personal.</p>
+      <p>Por otra parte, el perfil <strong>Innovador</strong> se ha desarrollado a partir de mi interés por la tecnología, la programación y la creación de soluciones nuevas. Esto se relaciona con mi capacidad de analizar, reflexionar y proponer ideas con una visión más amplia.</p>
+      <p>Finalmente, el perfil <strong>Estratega</strong> evidencia mi capacidad para dirigir, proyectar metas y detectar oportunidades de crecimiento. Esta personalidad complementa mi liderazgo, ya que me permite planificar a futuro y orientar mis esfuerzos hacia objetivos concretos.</p>
+      <p>En conjunto, estas personalidades muestran una combinación muy favorable para el emprendimiento: organización, iniciativa, creatividad y visión estratégica.</p>
       <img src="./personalidades.png" alt="Personalidades espontáneas" class="imagen-seccion">
     `;
   }
@@ -312,11 +363,15 @@ function mostrar(seccion){
     contenido = `
       <h2>6. Modelo de Negocio Personal</h2>
       <img src="./modelo_nuevo.png" alt="Modelo de negocio personal" class="imagen-seccion">
+      <p><strong>Este portafolio refleja mi proceso de crecimiento personal, académico y emprendedor.</strong></p>
     `;
   }
 
   document.getElementById("contenido").innerHTML = contenido;
+  activarBoton(seccion);
 }
+
+window.onload = inicio;
 </script>
 
 </body>
